@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ServiceConnectSettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/service/{serviceConnection}', [ServiceConnectSettingController::class, 'show']);
+Route::post('/service/{serviceConnection}/{setting}', [ServiceConnectSettingController::class, 'update']);
